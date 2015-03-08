@@ -1,3 +1,4 @@
+package com.zoco.chatclient.common;
 
 /**
  * Created by dookim on 2/8/15.

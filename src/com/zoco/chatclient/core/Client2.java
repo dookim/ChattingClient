@@ -1,12 +1,15 @@
+package com.zoco.chatclient.core;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+
+import com.zoco.chatclient.common.User;
 
 /** 
  * 
  */
 public class Client2 {
 
-	private Abortable abortable = new Abortable();
+	
 	private ClientThread clientThread;
 	static User user = new User("doo871128@gmail.com", "hufs", "facebook","1");
 
@@ -30,8 +33,7 @@ public class Client2 {
 			if (line.equals("quit"))
 				break;
 			try {
-				//���� �˰ų�. Ȥ�� 
-				client.clientThread.sendMessage(user, "2" ,1, i++, line);
+				client.clientThread.sendMessage("2" ,1, i++, line);
 			} catch (Exception e) {
 				e.printStackTrace();
 				break;
@@ -49,24 +51,22 @@ public class Client2 {
 	 * @param host
 	 * @param port
 	 */
-	public void start(String host, int port) {
-
-		abortable.init();
+	public void start(String host, int port) {		
 
 		if (clientThread == null || !clientThread.isAlive()) {
 			
-			clientThread = ClientThread.getInstance(abortable, host, port, user);
+			clientThread = ClientThread.getInstance(host, port, user);
 			clientThread.start();
 		}
 	}
 
 	/**
 	 * stop client
+	 * 주석달고 thread pool
 	 */
 	public void stop() {
-
-		abortable.done = true;
-
+		
+		clientThread.quitConnection();
 		if (clientThread != null && clientThread.isAlive()) {
 			clientThread.interrupt();
 		}
