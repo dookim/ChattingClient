@@ -21,7 +21,7 @@ public class Client2 {
 	public static void main(String[] args) throws Exception {
 
 		Client2 client = new Client2();
-		client.start("127.0.0.1", 7999);
+		client.start("14.49.36.193", 8500);
 		Thread.sleep(500);
 
 		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));

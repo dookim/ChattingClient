@@ -88,7 +88,7 @@ public class ClientThread extends Thread {
 	 */
 	public void sendMessage(String oppositeChatId, int bookId, int chattingIndex, String msgContent) throws IOException {
 		//String msg = "ZocoChat://message//" + bookId + "//" + chattingIndex + "//" + System.currentTimeMillis() + "//" + user.email + "//" + user.chatId + "//" + oppositeChatId + "//" + msgContent;
-		String msg = Constants.PROTOCOL + Constants.BEHAVIOUR_MESSAGE + "//" + bookId + "//" + chattingIndex + "//" + System.currentTimeMillis() + "//" + user.email + "//" + user.chatId + "//" + oppositeChatId + "//" + msgContent;
+		String msg = Constants.PROTOCOL + Constants.BEHAVIOUR_MESSAGE + "//" + bookId + "//" + chattingIndex + "//" + System.currentTimeMillis() + "//" + user.nickName + "//" + user.chatId + "//" + oppositeChatId + "//" + msgContent;
 		sayToServer(msg);
 	}
 	
